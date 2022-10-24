@@ -4,15 +4,19 @@ import cn.nukkit.plugin.PluginBase;
 import com.valixstudios.events.*;
 import com.valixstudios.game.GameManager;
 import com.valixstudios.game.GameState;
+import com.valixstudios.utils.SetupConfig;
 import lombok.Getter;
+import lombok.SneakyThrows;
 
 public class BedWars extends PluginBase {
     @Getter
     private static BedWars instance;
 
+    @SneakyThrows
     @Override
     public void onEnable() {
         instance = this;
+        SetupConfig.load();
 
         BedWars.getInstance().getServer().getPluginManager().registerEvents(new EntityDamageListener(), BedWars.getInstance());
         BedWars.getInstance().getServer().getPluginManager().registerEvents(new InventoryMoveItemListener(), BedWars.getInstance());
