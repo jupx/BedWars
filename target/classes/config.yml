@@ -1,0 +1,27 @@
+#########################
+# BedWars Configuration #
+#########################
+
+#Maximum players per game
+maxPlayers: 16
+
+#Minimum players for a game start
+minPlayers: 8
+
+#Countdown reduction to 10 seconds
+playersForStart: 16
+
+#Spawn bronze per every __ seconds
+spawnTimeBronze: 1
+
+#Spawn iron per every __ seconds
+spawnTimeIron: 8
+
+#Spawn gold per every __ seconds
+spawnTimeGold: 25
+
+#Maximum teams per game
+maxTeams: 4
+
+#Maximum players per team
+maxPlayerPerTeam: 4
