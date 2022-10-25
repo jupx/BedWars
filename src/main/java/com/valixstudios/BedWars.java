@@ -12,6 +12,7 @@ public class BedWars extends PluginBase {
     @Getter
     private static BedWars instance;
 
+
     @SneakyThrows
     @Override
     public void onEnable() {
@@ -33,5 +34,10 @@ public class BedWars extends PluginBase {
 
     @Override
     public void onDisable() {
+    }
+
+    @Override
+    public void onLoad(){
+        instance = this;
     }
 }

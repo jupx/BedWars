@@ -15,8 +15,7 @@ public class SetupConfig {
             spawnTimeIron, spawnTimeGold, maxTeams, maxPlayersPerTeam;
 
     public static void load() throws IOException {
-        YamlFile file = YamlFile.loadConfiguration(new File("C://Users/julia/Documents/file.yml"));
-        String name = file.getString("name");
+        YamlFile file = YamlFile.loadConfiguration(new File("./config.yml"));
 
         setMaxPlayers(file.getInt("maxPlayers"));
         setMinPlayers(file.getInt("minPlayers"));

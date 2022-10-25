@@ -6,12 +6,14 @@ import cn.nukkit.event.Listener;
 import cn.nukkit.event.player.PlayerJoinEvent;
 import cn.nukkit.item.Item;
 import com.valixstudios.game.GameState;
+import com.valixstudios.utils.SetupConfig;
 
 public class JoinListener implements Listener {
     
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
+        player.sendMessage(String.valueOf(SetupConfig.getSpawnTimeGold()));
 
         if (GameState.getGameState() == GameState.LOBBY) {
             player.setGamemode(Player.ADVENTURE);

@@ -2,6 +2,7 @@ com\valixstudios\game\Map.class
 com\valixstudios\utils\Countdown.class
 com\valixstudios\events\InventoryPickupArrowListener.class
 com\valixstudios\events\PlayerInteractListener.class
+com\valixstudios\utils\SetupConfig.class
 com\valixstudios\game\GameManager.class
 com\valixstudios\game\GameState.class
 com\valixstudios\game\GameManager$1.class
