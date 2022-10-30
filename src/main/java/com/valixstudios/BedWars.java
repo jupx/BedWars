@@ -1,6 +1,7 @@
 package com.valixstudios;
 
 import cn.nukkit.plugin.PluginBase;
+import cn.nukkit.utils.Config;
 import com.valixstudios.events.*;
 import com.valixstudios.game.GameManager;
 import com.valixstudios.game.GameState;
@@ -8,15 +9,17 @@ import com.valixstudios.utils.SetupConfig;
 import lombok.Getter;
 import lombok.SneakyThrows;
 
+import java.io.File;
+import java.util.LinkedHashMap;
+
 public class BedWars extends PluginBase {
     @Getter
     private static BedWars instance;
 
-
-    @SneakyThrows
     @Override
     public void onEnable() {
         instance = this;
+
         SetupConfig.load();
 
         BedWars.getInstance().getServer().getPluginManager().registerEvents(new EntityDamageListener(), BedWars.getInstance());
@@ -34,10 +37,6 @@ public class BedWars extends PluginBase {
 
     @Override
     public void onDisable() {
-    }
-
-    @Override
-    public void onLoad(){
-        instance = this;
+        SetupConfig.save();
     }
 }

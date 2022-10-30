@@ -14,6 +14,7 @@ com\valixstudios\utils\Messages.class
 com\valixstudios\events\EntityDamageListener.class
 com\valixstudios\events\InventoryPickupItemListener.class
 com\valixstudios\events\PlayerFoodLevelChangeListener.class
+com\valixstudios\utils\SetupConfig$1.class
 com\valixstudios\game\TeamManager.class
 com\valixstudios\BedWars.class
 com\valixstudios\events\InventoryMoveItemListener.class

@@ -1,11 +1,12 @@
 package com.valixstudios.utils;
 
+import cn.nukkit.utils.Config;
+import com.valixstudios.BedWars;
 import lombok.Getter;
 import lombok.Setter;
-import org.simpleyaml.configuration.file.YamlFile;
 
 import java.io.File;
-import java.io.IOException;
+import java.util.LinkedHashMap;
 
 public class SetupConfig {
 
@@ -14,16 +15,42 @@ public class SetupConfig {
     private static Integer maxPlayers, minPlayers, playersForStart, spawnTimeBronze,
             spawnTimeIron, spawnTimeGold, maxTeams, maxPlayersPerTeam;
 
-    public static void load() throws IOException {
-        YamlFile file = YamlFile.loadConfiguration(new File("./config.yml"));
+    public static Config config;
 
-        setMaxPlayers(file.getInt("maxPlayers"));
-        setMinPlayers(file.getInt("minPlayers"));
-        setPlayersForStart(file.getInt("playersForStart"));
-        setSpawnTimeBronze(file.getInt("spawnTimeBronze"));
-        setSpawnTimeIron(file.getInt("spawnTimeIron"));
-        setSpawnTimeGold(file.getInt("spawnTimeGold"));
-        setMaxTeams(file.getInt("maxTeams"));
-        setMaxPlayersPerTeam(file.getInt("maxPlayersPerTeam"));
+    public static void loadConfig() {
+        config = new Config(new File(BedWars.getInstance().getDataFolder(), "config.yml"), Config.YAML, new LinkedHashMap<String, Object>() {
+            {
+                put("playersMax", 16);
+                put("minPlayers", 8);
+                put("playersForStart", 16);
+                put("spawnTimeBronze", 1);
+                put("spawnTimeIron", 8);
+                put("spawnTimeGold", 25);
+                put("maxTeams", 4);
+                put("maxPlayerPerTeam", 4);
+            }
+        });
+        config.save();
+
+        setMaxPlayers(config.getInt("playersMax"));
+        setMinPlayers(config.getInt("minPlayers"));
+        setPlayersForStart(config.getInt("playersForStart"));
+        setSpawnTimeBronze(config.getInt("spawnTimeBronze"));
+        setSpawnTimeIron(config.getInt("spawnTimeIron"));
+        setSpawnTimeGold(config.getInt("spawnTimeGold"));
+        setMaxTeams(config.getInt("maxTeams"));
+        setMaxPlayersPerTeam(config.getInt("maxPlayerPerTeam"));
+    }
+
+    public static void saveConfig() {
+        config.save();
+    }
+
+    public static void loadStrings() {
+
+    }
+
+    public static void saveStrings() {
+
     }
 }
